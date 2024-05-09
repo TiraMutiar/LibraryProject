@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('buku_id');
             $table->unsignedBigInteger('transaksi_id');
             $table->integer('jumlah_buku');
-            $table->enum('status_punjam', ['pinjam','kembali']);
+            $table->enum('status_pinjam', ['pinjam','kembali']);
             $table->timestamps();
         });
     }
