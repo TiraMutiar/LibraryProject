@@ -9,6 +9,7 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PeminjamController;
 use App\Http\Controllers\PenerbitController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PinjamBukuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,5 +79,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/hapusbuku/{id}', [BukuController::class, 'hapus']);
     Route::get('/hapuspengelola/{id}', [UserController::class, 'hapus']);
 
+    Route::get('/pinjambuku', [PinjamBukuController::class, 'index']);
+    
     Route::get('/logout', [AuthController::class, 'logout']);
 });

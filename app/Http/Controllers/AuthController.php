@@ -38,7 +38,7 @@ class AuthController extends Controller
         $dataStore = [
             'name'          => $request->name,
             'email'         => $request->email,
-            'role'          => 'pengelola',
+            'role'          => 'peminjam',
             'jenis_kelamin' => $request->jenis_kelamin,
             'pictures'      => 'Default.jpg',
             'password'      => Hash::make($request->password)

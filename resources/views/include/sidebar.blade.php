@@ -38,18 +38,23 @@
             <span>Buku</span></a>
     </li>
     <li class="nav-item">
+        <a class="nav-link" href="/pinjambuku">
+            <i class="fas fa-fw fa-paperclip"></i>
+            <span>Pinjam Buku</span></a>
+    </li>
+    <li class="nav-item">
         @if (auth()->user()->role == "pengelola")
         <a class="nav-link" href="indexpenerbit">
             <i class="fas fa-fw fa-users"></i>
             <span>Penerbit</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="indexuser">
+        <a class="nav-link" href="/indexuser">
             <i class="fas fa-fw fa-users"></i>
             <span>Users</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="indexpeminjam">
+        <a class="nav-link" href="/indexpeminjam">
             <i class="fas fa-fw fa-users"></i>
             <span>Peminjam</span></a>
         @endif
