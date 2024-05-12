@@ -14,7 +14,7 @@
             </h6>
             <br>
             @if (auth()->user()->role == "pengelola")
-            <a href="/tambahbuku" class="btn btn-primary pull-right">Tambah Buku</a>
+            <a href="/tambahbuku" class="btn btn-primary pull-right">Tambah Peminjam</a>
             @endif
         </div>
         <div class="card-body">
