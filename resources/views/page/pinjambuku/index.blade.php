@@ -10,12 +10,10 @@
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">
-                Table Pinjaman
+                Form Pinjam Buku
             </h6>
             <br>
-            @if (auth()->user()->role == "pengelola")
-            <a href="/tambahbuku" class="btn btn-primary pull-right">Tambah Peminjam</a>
-            @endif
+            <a href="/tambahpinjaman" class="btn btn-primary pull-right">Tambah Pinjaman</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">

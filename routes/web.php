@@ -80,6 +80,9 @@ Route::middleware('auth')->group(function(){
     Route::get('/hapuspengelola/{id}', [UserController::class, 'hapus']);
 
     Route::get('/pinjambuku', [PinjamBukuController::class, 'index']);
-    
+    Route::get('/tambahpinjaman', [PinjamBukuController::class, 'tambah']);
+
+    Route::post('/simpantransaksi', [PinjamBukuController::class, 'simpantransaksi']);
+
     Route::get('/logout', [AuthController::class, 'logout']);
 });
