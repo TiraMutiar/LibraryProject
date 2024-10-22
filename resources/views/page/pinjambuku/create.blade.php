@@ -33,27 +33,27 @@
                 <hr>
                 <div class="row">
                     <div class="col-md-4">
-                        <input type="text" name="" id="" class="form form-control">
+                        <input type="text" name="idbuku" id="idbuku" class="form form-control" placeholder="Masukan kode buku">
                     </div>
                     <div class="col-md-2">
-                        <button class="btn btn-success">Cari Buku</button>
+                        <button class="btn btn-success" onclick="cariBuku()">Cari Buku</button>
                     </div>
                 </div>
-            <div class="row mt-3">
+            <div class="row mt-3" id="form-pilihanbuku">
                 <div class="col-md-3">
                     <label for="">Nama Buku</label>
-                    <input type="text" name="" id="" class="form form-control">
+                    <input type="text" name="namabuku" id="namabuku" class="form form-control">
                 </div>
                 <div class="col-md-3">
                     <label for="">Kategori</label>
-                    <input type="text" name="" id="" class="form form-control">
+                    <input type="text" name="kategoribuku" id="kategoribuku" class="form form-control">
                 </div>
                 <div class="col-md-3">
                     <label for="">Jumlah Buku</label>
                     <input type="text" name="" id="" class="form form-control">
                 </div>
                 <div class="col-md-3"> <br>
-                    <button class="btn btn-primary">Pilih</button>
+                    <button class="btn btn-primary" onclick="pilihBuku()">Pilih</button>
                 </div>
             </div>
             <div class="row mt-4">
@@ -79,8 +79,8 @@
 </div>
 @endsection
 @push('jsfooter')
-//penyisipan JS
 <script>
+    var idTransaksi;
     function buatPinjaman() {
         $.ajax({
             url: window.location.origin+'/simpantransaksi',
@@ -88,13 +88,44 @@
             dataType: "JSON",
             data: $('#form-buatpinjam').serialize(),
             success: function(res){
-                console.log(res)
+                console.log(res.idtransaksi)
+                idTransaksi = res.idtransaksi
             },
             error: function(res){
-
             }
-
         })
     }
+
+    ///caribuku
+    function cariBuku() {
+        $.ajax({
+            url: window.location.origin+'/caribuku/'+$('#idbuku').val(),
+            type: "GET",
+            dataType: "JSON",
+            success: function(res){
+                console.log(res)
+                $('#namabuku').val(res.data.judul_buku)
+                $('#kategoribuku').val(res.data.kategori.nama_kategori)
+            },
+            error: function(res) {
+                alert("Data buku tidak ditemukan!")
+            }
+        })
+    }
+    function pilihBuku() {
+        $.ajax({
+            url: window.location.origin+'/simpanpilihan',
+            type: "POST",
+            dataType: "JSON",
+            data: $('#form-pilihanbuku').serialize(),
+            success: function(res){
+                console.log(res.idtransaksi)
+                idTransaksi = res.idtransaksi
+            },
+            error: function(res){
+            }
+        })
+    }
+
 </script>
 @endpush

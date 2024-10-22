@@ -83,6 +83,8 @@ Route::middleware('auth')->group(function(){
     Route::get('/tambahpinjaman', [PinjamBukuController::class, 'tambah']);
 
     Route::post('/simpantransaksi', [PinjamBukuController::class, 'simpantransaksi']);
+    Route::post('/simpanpilihan', [PinjamBukuController::class, 'simpanpilihan']);
+    Route::get('/caribuku/{id}', [PinjamBukuController::class, 'caribuku']);
 
     Route::get('/logout', [AuthController::class, 'logout']);
 });
